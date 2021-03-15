@@ -26,19 +26,18 @@ legend {
 legend::before {
   position: absolute;
   content: '';
-  width: calc(120% );
   display: block;
   background-color:#EB6864;
   height: 40px;
   z-index:-1;
   left: -30px;
   right: -30px;
-  transform: rotate(-1deg);
   transition: transform .3s ease;
 }
 
 legend:hover::before{
-  transform: rotate(2deg);
+  background-color:#b6211c;
+  transform: scale(2, 2);
 }
 
 form.card{
