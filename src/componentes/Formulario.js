@@ -18,7 +18,7 @@ function Formulario() {
 
     // Consultar las APIs
     const buscarBioYLetra = (e) => {
-        e.prevent.default();
+        e.preventDefault();
 
         if (artista.trim() === '' || cancion.trim() === '') {
             setError(true);
@@ -29,11 +29,16 @@ function Formulario() {
 
     return (
         <div className='bg-info'>
+            {error ? (
+                <p className='alert alert-danger text-center p-2'>
+                    Todos los campos son obligatorios
+                </p>
+            ) : null}
             <div className='container'>
                 <div className='row'>
                     <form
-                        className='col card text-white bg-transparent mb-5 pt-5 pb-2'
                         onSubmit={buscarBioYLetra}
+                        className='col card text-white bg-transparent mb-5 pt-5 pb-2'
                     >
                         <fieldset>
                             <legend className='text-center'>
