@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Formulario() {
+function Formulario({ setBusquedaLetra }) {
     const [busqueda, setBusqueda] = useState({
         artista: '',
         cancion: '',
@@ -25,6 +25,9 @@ function Formulario() {
             return;
         }
         setError(false);
+
+        // Si realiza exitosamente la consulta, me la llevo al componente principal
+        setBusquedaLetra(busqueda);
     };
 
     return (
