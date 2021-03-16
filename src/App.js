@@ -5,8 +5,9 @@ import Cancion from './componentes/Cancion';
 
 function App() {
     const [busquedaLetra, setBusquedaLetra] = useState({});
-    const [letra, setLetra] = useState('');
     const [nombreCancion, setNombreCancion] = useState('');
+    const [letra, setLetra] = useState('');
+    const [info, setInfo] = useState({});
 
     useEffect(() => {
         if (Object.keys(busquedaLetra).length === 0) return;
@@ -14,11 +15,16 @@ function App() {
         const consultarApiLetra = async () => {
             const { artista, cancion } = busquedaLetra;
             const url = `https://api.lyrics.ovh/v1/${artista}/${cancion}`;
+            const url2 = `https://www.theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
 
-            const resultado = await axios.get(url);
+            const [letra, informacion] = await axios.all([
+                axios.get(url),
+                axios.get(url2),
+            ]);
 
             setNombreCancion(cancion);
-            setLetra(resultado.data.lyrics);
+            setLetra(letra.data.lyrics);
+            setInfo(informacion.data.artists[0]);
         };
         consultarApiLetra();
     }, [busquedaLetra]);
