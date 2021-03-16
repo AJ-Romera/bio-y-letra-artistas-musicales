@@ -47,6 +47,11 @@ form.card{
 .letra {
   white-space: pre-wrap;
 }
+.nombre-cancion {
+  color: #EB6864;
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
 .card img {
   width: 100%;
