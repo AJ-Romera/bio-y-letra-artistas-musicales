@@ -28,6 +28,12 @@ function Formulario({ setBusquedaLetra }) {
 
         // Si realiza exitosamente la consulta, me la llevo al componente principal
         setBusquedaLetra(busqueda);
+
+        // Limpia el formulario
+        setBusqueda({
+            artista: '',
+            cancion: '',
+        });
     };
 
     return (

@@ -28,7 +28,7 @@ function App() {
             setInfo(informacion.data.artists[0]);
         };
         consultarApiLetra();
-    }, [busquedaLetra, info]);
+    }, [busquedaLetra]);
 
     return (
         <>
