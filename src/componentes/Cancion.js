@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Cancion({ nombreCancion, letra }) {
     if (letra.length === 0) {
@@ -14,5 +15,10 @@ function Cancion({ nombreCancion, letra }) {
         </>
     );
 }
+
+Cancion.propTypes = {
+    nombreCancion: PropTypes.string.isRequired,
+    letra: PropTypes.string.isRequired,
+};
 
 export default Cancion;

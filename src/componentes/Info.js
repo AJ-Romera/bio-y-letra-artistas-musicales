@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Info({ info }) {
     if (Object.keys(info).length === 0) {
@@ -108,5 +109,9 @@ function Info({ info }) {
         </div>
     );
 }
+
+Info.propTypes = {
+    info: PropTypes.object.isRequired,
+};
 
 export default Info;
